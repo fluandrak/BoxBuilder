@@ -1,0 +1,274 @@
+@font-face {
+  font-family: jetbrains;
+  src: url(_assets/jetbrains.ttf);
+}
+
+@font-face {
+  font-family: jetbrains;
+  src: url(_assets/jetbrains-bold.ttf);
+  font-weight: bold;
+}
+
+html, body {
+  font-family: jetbrains;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  
+  /* >>>>>>>>>>> DISABLE TEXT SELECTION >>>>>>>>>>>>>> */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+  /* <<<<<<<<<<<< DISABLE TEXT SELECTION <<<<<<<<<<<< */
+}
+
+canvas {
+  display: block;
+}
+
+/* >>>>>>>>>>> NESTED UI DIMENSION DIVS >>>>>>>>>>>>>>> */
+
+.ui-dim-div {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 100vw;
+  justify-content: center;
+}
+
+.dim-wrapper-div {
+  position: relative;
+  margin: 0.12em;
+  width: 5.2em;
+  max-width: 23vw;
+}
+
+.custom-select {
+  position: relative;
+  height: 100%;
+}
+
+.select-items-wrapper-div {
+  opacity: 93%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  margin-top: 0.12em;
+  border-radius: 0.08em 0.08em 0.3em 2.5em;
+  height: 100%;
+  background-color: #999;
+  box-shadow: 0.05em 0.07em 0.1em #444;
+}
+
+.select-items {
+  padding-top: 0.8em;
+  padding-bottom: 2.3em;
+  text-align: center;
+/*   transform: scaleX(1.1); */
+}
+
+/* <<<<<<<<<<< NESTED UI DIMENSION DIVS <<<<<<<<<<<<< */
+
+.top-fadeout-div {
+/*   opacity: 90%; */
+  touch-action: none;
+  pointer-events: none;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 2.1em;
+/*   width: calc(100% - 0.6em); */
+  width: 100%;
+  height: 2.1em;
+  border-radius: 0.3em 0 0 0;
+  background-image: linear-gradient(rgba(173, 175, 177, 1), rgba(0, 0, 0, 0));
+  backdrop-filter: blur(0.05em);
+}
+
+.bottom-fadeout-div {
+/*   opacity: 90%; */
+  touch-action: none;
+  pointer-events: none;
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: -2.1em;
+/*   width: calc(100% - 0.6em); */
+  width: 100%;
+  height: 3.6em;
+  border-radius: 0 0 0.3em 2.5em;
+  background-image: linear-gradient(rgba(0, 0, 0, 0),  rgba(130, 130, 130, 1));
+  backdrop-filter: blur(0.035em);
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  margin-top: 0.4em;
+  border-radius: 1.48em 1.48em 0.08em 0.08em;
+  box-shadow: 0.05em 0.07em 0.1em #444;
+  background-image: linear-gradient(#C9C9C1, #BEBDBC, #A9ACAD, #9CA5A9, #9FA9B0, rgb(170, 170, 170));
+  height: 1.5em;
+  line-height: 1.3em;
+  padding: 0 0.3em 0.08em 0.3em;
+/*   transition: translateY 0.05s; */
+}
+
+.select-selected:active {
+/*   transform: translateY(0.2em); */
+}
+
+.select-selected-dimension-value-and-unit-div {
+  display: flex;
+}
+
+.select-selected-dimension-value {
+/*   display: inline-block; */
+/*   color: #E0F5F9; */
+/*   color: #FDE7CC; */
+  color: #FAE78D;
+  text-shadow: 0.0em -0.02em 0.035em black;
+  font-size: 2.1em;
+  font-style: italic;
+  font-weight: bold;
+  text-align: left;
+/*   -webkit-text-fill-color: #FFD185; /* Will override color (regardless of order) */
+/*   -webkit-text-stroke-width: 0.011em; */
+/*   -webkit-text-stroke-color: black; */
+}
+
+.select-selected-dimension-unit {
+/*   display: inline-block; */
+  color: white;
+  text-shadow: 0 0 0.2em black;
+  font-style: italic;
+  font-size: 1.2em;
+  padding: 0.2em 0 0 0.4em;
+  vertical-align: top;
+}
+
+.select-selected-dimension-label {
+  text-shadow: 0 0 0.9em white;
+/*   -webkit-text-stroke-width: 0.008em;
+  -webkit-text-stroke-color: white; */
+  color: black;
+  font-size: 0.6em;
+  font-weight: bold;
+  text-align: center;
+  transform: scaleX(1.6);
+/*   margin: 0.2em; */
+}
+
+/* .select-selected-dimension-label-vertical {
+  transform: rotate(-90deg) scaleX(1.1);
+  position: absolute;
+  top: calc(50%);
+  margin-left: 1.5em;
+  width: 100%;
+  text-align: center;
+  color: #666;
+  font-size: 1em;
+  text-shadow: 0 0 0.2em white;
+}
+*/
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  border: 0.35em solid transparent;
+  border-color: #01DE0E transparent transparent transparent;
+  top: 0.05em;
+  right: -0.1em;
+  content: "";
+}
+
+/* Point the arrow upwards when the select box is active: */
+.select-selected.select-arrow-active:after {
+  border: 0.35em solid transparent;
+  border-color: #E47F01 transparent transparent transparent;
+}
+
+/* SELECT OPTIONS/ITEMS, including the selected item: */
+/*.select-items div, .select-selected { */
+.select-items div {
+  color: white;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-shadow: 0 0 0.05em black;
+  padding: 0.65em 0.5em;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.2s;
+  transition-timing-function: ease-out;
+  -webkit-text-stroke-width: 0.02em;
+  -webkit-text-stroke-color: black;
+}
+
+.same-as-selected {
+  text-decoration: underline;
+  text-decoration-thickness: 0.28em;
+  text-decoration-color: #99ffee;
+}
+
+/* 
+.same-as-selected:before {
+  margin-left: -1em;
+  content: "✔️";
+}
+*/
+
+.select-items div:hover {
+  color: #FFFEB2;
+  transform: scale(1.18);
+/*   text-shadow: none; */
+  text-shadow: 0.027em 0.015em 0.12em black;
+/*   color: white; */
+/*   font-weight: bold; */
+/*   text-decoration: none; */
+/*   text-decoration-thickness: 0.12em;
+  text-decoration-color: #ffddcc; */
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+
+/* >>>>>>>>>>>>>> SCROLLBAR >>>>>>>>>>>>>>>>>>>>>> */
+
+::-webkit-scrollbar {
+  width: 0.6em;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
+  border-radius: 0.3em;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
+  border-radius: 0.3em;
+}
+
+/* <<<<<<<<<<<<<< SCROLLBAR <<<<<<<<<<<<<<<<<<<<<<< */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
